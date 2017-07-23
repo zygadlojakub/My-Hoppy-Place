@@ -1,15 +1,23 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: grey;
+    height: 25%;
+}
+section {
+    background-color: beige;
+    height: 75%;
+}
 .container {
-    max-width: 1200px;
+    min-width: 300px;
     width: 100%;
     height: 100%;
     margin: auto;
     background-color: white;
 }
-header {
-    background-color: grey;
-    height: 250px;
-}
-section {
-    background-color: beige;
-    height: 600px;
+#map {
+    height: 100%;
 }
