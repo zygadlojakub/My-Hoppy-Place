@@ -16,10 +16,18 @@ document.addEventListener("DOMContentLoaded", function(){
 					searchArr.push(hoppyPlaces[i]);
 				}
 			}
+			emptyArr();
 		}
 		searchData();
 		
+		function emptyArr() {
+			if (searchArr.length === 0) {
+				alert ('Niestety :( Musisz poszukać czegoś innego')
+			}
+		}
+		
 		console.log(searchArr);
+		
 		
 		
 	});
