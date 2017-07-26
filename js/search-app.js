@@ -1,19 +1,36 @@
 document.addEventListener("DOMContentLoaded", function(){
     
-    var searchOne = "ipa";      //z input'a (getElementById("myText").value), jako string
-	var searchTwo = "stout";
-	
-	var result = [];
+	var searchArr = [];
 	
 	
-	function searchData() {
-		for (var i = 0; i < hoppyPlaces.length; i++) {
-			if (hoppyPlaces[i].beers.style == searchOne) {
-				result.push({});
+	
+	document.getElementById('searchBut').addEventListener('click', function(event){
+		
+		var search = document.getElementById('searchVal').value;
+		
+		function searchData() {
+			searchArr = [];
+			
+			for (var i = 0; i < hoppyPlaces.length; i++) {
+				if (hoppyPlaces[i].beers.style == search) {
+					searchArr.push(hoppyPlaces[i]);
+				}
 			}
 		}
-	}
-	searchData();
+		searchData();
+		
+		console.log(searchArr);
+		
+		
+	});
+	
+	
+
+	
+	
+	
+	
+	
 	
 	
 	

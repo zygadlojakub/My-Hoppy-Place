@@ -13,7 +13,7 @@ function initMap() {
     });
 	
 	
-	
+	//Markers
 	for (var i = 0; i < hoppyPlaces.length; i++) {  
     	marker = new google.maps.Marker({
 			position: hoppyPlaces[i].position,
@@ -34,20 +34,6 @@ function initMap() {
 		
 		
     }
-	var searchOne = "ipa";      //z input'a (getElementById("myText").value), jako string
-	var searchTwo = "stout";
-	
-	var result = [];
-	
-	
-	function searchData() {
-		for (var i = 0; i < hoppyPlaces.length; i++) {
-			if (hoppyPlaces[i].beers.style == searchOne) {
-				result.push(hoppyPlaces[i]);
-			}
-		}console.log(result);
-	}
-	searchData();
 }
 
 
