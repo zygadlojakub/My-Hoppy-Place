@@ -7,19 +7,19 @@ var hoppyPlaces = [
 	},
 	{
 		position: {lat: 51.1000, lng: 17.020},
-		beers: {name: 'Super APA', style: 'ipa'},
 		title: 'Pub #2',
+		beers: {name: 'Super APA', style: 'apa'},
 		
 	},
 	{
 		position: {lat: 51.1084, lng: 17.038},
 		title: 'Pub #3',
-		beers: {},
+		beers: {name: 'Chocolade cake', style: 'stout'},
 	},
 	{
 		position: {lat: 51.1200, lng: 17.000},
 		title: 'Pub #4',
-		beers: {},
+		beers: {name: 'Citrus IPA', style: 'ipa'},
 	}
 ];
 

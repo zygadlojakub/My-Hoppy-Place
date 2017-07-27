@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	
 	document.getElementById('searchBut').addEventListener('click', function(event){
 		
-		var search = document.getElementById('searchVal').value;
+		var search = document.getElementById('searchVal').value.toLowerCase();
 		
 		function searchData() {
 			searchArr = [];
@@ -25,25 +25,10 @@ document.addEventListener("DOMContentLoaded", function(){
 				alert ('Niestety :( Musisz poszukać czegoś innego')
 			}
 		}
-		
-		console.log(searchArr);
-		
-		
+		showMarkers(searchArr);
+	
 		
 	});
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	//lece pętła po tablicy obektów, sprawdzam if'em czy jest równy stringowi ze zmiennej z wyszukiwarki i jezeli tak to pushem wsadzam objekt do kolejnej tablicy ktora pozniej wyswietlę.
-	
     
 });
 
