@@ -189,41 +189,48 @@ function initMap() {
 	
 	map = new google.maps.Map(document.getElementById('map'), {
     center: wroclaw,
-    zoom: 14,
+    zoom: 13,
 //	scrollwheel: false,
 	styles: mapStyle,
 	
     });
 }
 
-var markers = [];
+var markers = []; //empty array for markers
+var marker; //single marker
+
 
 function showMarkers(array) {
 	
+	var image = {
+		url : './img/marker_icon.png',
+	}
 	markers.forEach(function(marker) {
 		marker.setMap(null);
     });
     markers = [];
 	
 	for (var i = 0; i < array.length; i++) {  
-    	markers.push(new google.maps.Marker({
+    	markers.push(marker = new google.maps.Marker({
 			position: array[i].position,
 			map: map,
-//			clickable: true,
-//			visible: true
+			icon: image,
 		}));
+				
+		markerContent(marker, i);
+		}
+
+		
+	function markerContent(marker, i) {
+		var infowindow = new google.maps.InfoWindow({
+			content: array[i].title,
+		});
+
+		marker.addListener('click', function() {
+			infowindow.open(marker.get('map'), marker);
+		});
 		
 		
-		
-		
-//		var infowindow = new google.maps.InfoWindow();
-//
-//		google.maps.event.addListener(markers, 'click', (function(markers, i) {
-//			return function() {
-//				infowindow.setContent(array[i].title);
-//				infowindow.open(map, markers);
-//			}
-//		})(markers, i));
 		
     }
 }

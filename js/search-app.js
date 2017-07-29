@@ -12,8 +12,11 @@ document.addEventListener("DOMContentLoaded", function(){
 			searchArr = [];
 			
 			for (var i = 0; i < hoppyPlaces.length; i++) {
-				if (hoppyPlaces[i].beers.style == search) {
+				for (var j = 0; j < hoppyPlaces[i].beers.style.length; j++) {
+					if (hoppyPlaces[i].beers.style[j] == search) {
 					searchArr.push(hoppyPlaces[i]);
+					break;
+					}
 				}
 			}
 			emptyArr();
