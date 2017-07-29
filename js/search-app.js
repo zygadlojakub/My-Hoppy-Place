@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    
-	var searchArr = [];
-	
-	
+
 	
 	document.getElementById('searchBut').addEventListener('click', function(event){
 		
@@ -29,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 		showMarkers(searchArr);
-	
 		
 	});
     

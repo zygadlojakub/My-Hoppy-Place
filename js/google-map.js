@@ -1,5 +1,4 @@
 var map;
-var wroclaw = {lat: 51.110, lng: 17.035};
 
 
 function initMap() {
@@ -186,6 +185,7 @@ function initMap() {
 			]
 		}
 	]
+	var wroclaw = {lat: 51.110, lng: 17.035};
 	
 	map = new google.maps.Map(document.getElementById('map'), {
     center: wroclaw,
@@ -217,21 +217,45 @@ function showMarkers(array) {
 			icon: image,
 		}));
 				
-		markerContent(marker, i);
+		showContent(marker, i);
 		}
 
 		
-	function markerContent(marker, i) {
-		var infowindow = new google.maps.InfoWindow({
-			content: array[i].title,
+	function showContent(marker, i) {
+		
+		var infowindow = new google.maps.InfoWindow();
+		
+		var markerContent = document.createElement('div');
+        var strong = document.createElement('strong');
+		var beersList = document.createElement('p');
+		var link = document.createElement('a');
+		var anchore = document.createTextNode("Czytaj więcej");
+		
+        strong.textContent = array[i].title
+        markerContent.appendChild(strong);
+		
+        beersList.innerHTML = printBeers(i);
+        markerContent.appendChild(beersList);
+		
+		link.appendChild(anchore);
+		link.href = array[i].url;
+		markerContent.appendChild(link);
+		
+		
+		marker.addListener('click', function() {
+			infowindow.setContent(markerContent);
+			infowindow.open(map, marker);
 		});
 
-		marker.addListener('click', function() {
-			infowindow.open(marker.get('map'), marker);
-		});
-		
-		
-		
     }
+	
+	function printBeers(i) {
+    	var beersArr = searchArr[i].beers.name;
+    	var printThis = "";
+		for (var j = 0; j < beersArr.length; j++){
+				printThis += "<br>"+beersArr[j];
+			}
+			return printThis;
+		}
 }
 
