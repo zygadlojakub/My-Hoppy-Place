@@ -1,5 +1,4 @@
 var map;
-var marker;
 var wroclaw = {lat: 51.110, lng: 17.035};
 
 
@@ -191,31 +190,41 @@ function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
     center: wroclaw,
     zoom: 14,
+//	scrollwheel: false,
 	styles: mapStyle,
 	
     });
 }
 
+var markers = [];
+
 function showMarkers(array) {
 	
+	markers.forEach(function(marker) {
+		marker.setMap(null);
+    });
+    markers = [];
+	
 	for (var i = 0; i < array.length; i++) {  
-    	marker = new google.maps.Marker({
+    	markers.push(new google.maps.Marker({
 			position: array[i].position,
 			map: map,
-			clickable: true,
-			visible: true
-		});
+//			clickable: true,
+//			visible: true
+		}));
 		
-		var infowindow = new google.maps.InfoWindow();
-
-		google.maps.event.addListener(marker, 'click', (function(marker, i) {
-			return function() {
-				infowindow.setContent(array[i].title);
-				infowindow.open(map, marker);
-			}
-		})(marker, i));
+		
+		
+		
+//		var infowindow = new google.maps.InfoWindow();
+//
+//		google.maps.event.addListener(markers, 'click', (function(markers, i) {
+//			return function() {
+//				infowindow.setContent(array[i].title);
+//				infowindow.open(map, markers);
+//			}
+//		})(markers, i));
 		
     }
 }
 
-	 
